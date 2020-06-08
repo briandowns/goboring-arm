@@ -11,7 +11,7 @@ RUN apt update     && \
 
 RUN git clone https://go.googlesource.com/go
 RUN git fetch --all --tags --prune && \
-    git checkout tags/${TAG} -b ${TAG}  
+    git checkout dev.  
 RUN cd go/src && \
     CGO_ENABLED=1 GOOS=linux GOARCH=${ARM_VERSION} ./buildall.bash
 

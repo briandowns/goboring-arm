@@ -1,5 +1,9 @@
 SEVERITIES = HIGH,CRITICAL
 
+ifeq ($(TAG),)
+TAG=dev
+endif
+
 .PHONY: all
 all:
 	docker build --build-arg TAG=$(TAG) ARCH=$(ARCH) -t ranchertest/goboring:$(TAG)-$(ARCH) .

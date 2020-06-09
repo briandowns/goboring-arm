@@ -4,9 +4,14 @@ ifeq ($(TAG),)
 TAG=dev
 endif
 
+ifeq ($(ARCH),)
+ARCH=arm
+endif
+
+
 .PHONY: all
 all:
-	docker build --build-arg TAG=$(TAG) ARCH=$(ARCH) -t ranchertest/goboring:$(TAG)-$(ARCH) .
+	docker build --build-arg TAG=$(TAG) --build-arg ARCH=$(ARCH) -t ranchertest/goboring:$(TAG)-$(ARCH) .
 
 .PHONY: image-push
 image-push:
